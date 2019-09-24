@@ -1,8 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
+import fetch from 'isomorphic-unfetch'
 
-const Home = () => (
+const Home = props => (
   <div>
     <Head>
       <title>Home</title>
@@ -11,7 +12,7 @@ const Home = () => (
     <Nav />
 
     <div className='hero'>
-      <h1 className='title'>Welcome to Next.js!</h1>
+      <h1 className='title'>Welcome to Next.js! Stargazers: {props.stars}</h1>
       <p className='description'>
         To get started, edit <code>pages/index.js</code> and save to reload.
       </p>
@@ -83,5 +84,11 @@ const Home = () => (
     `}</style>
   </div>
 )
+
+Home.getInitialProps = async ({ req }) => {
+  const res = await fetch('https://api.github.com/repos/zeit/next.js')
+  const json = await res.json()
+  return { stars: json.stargazers_count }
+}
 
 export default Home
