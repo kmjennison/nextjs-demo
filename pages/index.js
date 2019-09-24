@@ -14,7 +14,7 @@ const Home = props => (
     <div className='hero'>
       <h1 className='title'>Welcome to Next.js! Stargazers: {props.stars}</h1>
       <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
+        Here's the time: {props.date}
       </p>
 
       <div className='row'>
@@ -88,7 +88,8 @@ const Home = props => (
 Home.getInitialProps = async ({ req }) => {
   const res = await fetch('https://api.github.com/repos/zeit/next.js')
   const json = await res.json()
-  return { stars: json.stargazers_count }
+  const dateStr  = new Date().toISOString()
+  return { stars: json.stargazers_count, date: dateStr }
 }
 
 export default Home
