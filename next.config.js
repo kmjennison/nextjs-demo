@@ -7,6 +7,7 @@ const nextConfig = {
   generateInDevMode: false, // whether to enable the SW in development
   workboxOpts: {
     swDest: 'static/service-worker.js',
+    cleanupOutdatedCaches: true,
     clientsClaim: true,
     skipWaiting: true,
     // TODO:
