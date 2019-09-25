@@ -3,7 +3,8 @@ import Head from 'next/head'
 import Nav from '../components/nav'
 import fetch from 'isomorphic-unfetch'
 
-const Home = props => (
+const Home = props => {
+  return (
   <div>
     <Head>
       <title>Home</title>
@@ -83,7 +84,8 @@ const Home = props => (
       }
     `}</style>
   </div>
-)
+  )
+}
 
 Home.getInitialProps = async ({ req }) => {
   const res = await fetch('https://api.github.com/repos/zeit/next.js')
