@@ -15,7 +15,9 @@ app.prepare().then(() => {
 
     // handle GET request to /service-worker.js
     if (pathname === '/service-worker.js') {
-      const filePath = join(__dirname, '.next', pathname)
+      // Service worker JS is in .next/static/ directory.
+      // https://github.com/hanford/next-offline/issues/141
+      const filePath = join(__dirname, '.next', 'static', pathname)
 
       app.serveStatic(req, res, filePath)
     } else {
