@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import fetch from 'isomorphic-unfetch'
 import Nav from '../components/nav'
 
+const fetchData = async () => {
+  const res = await fetch('https://api.github.com/repos/zeit/next.js')
+  const json = await res.json()
+  const dateStr = new Date().toISOString()
+  return { stars: json.stargazers_count, date: dateStr }
+}
+
 const Home = props => {
-  const { date, stars } = props
+  const { date: dateSSR, stars: starsSSR } = props
+  const [count, setCount] = useState(0)
+  const [date, setDate] = useState(dateSSR)
+  const [stars, setStars] = useState(starsSSR)
+  useEffect(() => {
+    const callAPI = async () => {
+      const data = await fetchData()
+      setDate(data.date)
+      setStars(data.stars)
+    }
+    callAPI()
+  }, [])
   return (
     <div>
       <Head>
@@ -22,6 +40,21 @@ const Home = props => {
         <p className="description">
           {"Here's the date:"}
           {date}
+        </p>
+
+        <p className="description">
+          A count: {count}
+          <button
+            type="button"
+            onClick={() => {
+              setCount(count + 1)
+            }}
+            style={{
+              marginLeft: 10,
+            }}
+          >
+            Increment
+          </button>
         </p>
 
         <div className="row">
@@ -101,10 +134,7 @@ Home.propTypes = {
 }
 
 Home.getInitialProps = async () => {
-  const res = await fetch('https://api.github.com/repos/zeit/next.js')
-  const json = await res.json()
-  const dateStr = new Date().toISOString()
-  return { stars: json.stargazers_count, date: dateStr }
+  return fetchData()
 }
 
 export default Home
