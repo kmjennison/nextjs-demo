@@ -1,9 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Head from 'next/head'
 import fetch from 'isomorphic-unfetch'
 import Nav from '../components/nav'
 
 const Home = props => {
+  const { date, stars } = props
   return (
     <div>
       <Head>
@@ -15,11 +17,11 @@ const Home = props => {
       <div className="hero">
         <h1 className="title">
           Welcome to Next.js! Stargazers:
-          {props.stars}
+          {stars}
         </h1>
         <p className="description">
-          Here's the date:
-          {props.date}
+          {"Here's the date:"}
+          {date}
         </p>
 
         <div className="row">
@@ -93,7 +95,12 @@ const Home = props => {
   )
 }
 
-Home.getInitialProps = async ({ req }) => {
+Home.propTypes = {
+  date: PropTypes.string.isRequired,
+  stars: PropTypes.number.isRequired,
+}
+
+Home.getInitialProps = async () => {
   const res = await fetch('https://api.github.com/repos/zeit/next.js')
   const json = await res.json()
   const dateStr = new Date().toISOString()

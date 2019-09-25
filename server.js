@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 const { createServer } = require('http')
 const { join } = require('path')
 const { parse } = require('url')
