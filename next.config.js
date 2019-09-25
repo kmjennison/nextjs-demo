@@ -21,6 +21,8 @@ const nextConfig = {
           expiration: {
             maxEntries: 150,
             maxAgeSeconds: 30 * 24 * 60 * 60, // 1 month
+            // Automatically cleanup if quota is exceeded.
+            purgeOnQuotaError: true,
           },
           cacheableResponse: {
             statuses: [0, 200],
