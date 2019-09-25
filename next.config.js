@@ -4,7 +4,7 @@ const withOffline = require('next-offline')
 const nextConfig = {
   target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
-  generateInDevMode: false, // whether to enable the SW in development
+  generateInDevMode: true, // whether to enable the SW in development
   workboxOpts: {
     swDest: 'static/service-worker.js',
     cleanupOutdatedCaches: true,
