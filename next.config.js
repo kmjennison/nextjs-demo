@@ -4,11 +4,12 @@ const withOffline = require('next-offline')
 const nextConfig = {
   target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
-  // Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
-  // turn on the SW in dev mode so that we can actually test it
-  generateInDevMode: true,
+  generateInDevMode: false, // whether to enable the SW in development
   workboxOpts: {
     swDest: 'static/service-worker.js',
+    // TODO:
+    // Configure different strategies:
+    // https://github.com/hanford/next-offline#cache-strategies
     runtimeCaching: [
       {
         urlPattern: /^https?.*/,
