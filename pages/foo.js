@@ -12,9 +12,9 @@ const Home = props => (
     <Nav />
 
     <div className='hero'>
-      <h1 className='title'>Welcome to Next.js! Stargazers: {props.stars}</h1>
+      <h1 className='title'>Foo!</h1>
       <p className='description'>
-        Here's the date: {props.date}
+        This page should not use a lambda.
       </p>
 
       <div className='row'>
@@ -84,12 +84,5 @@ const Home = props => (
     `}</style>
   </div>
 )
-
-Home.getInitialProps = async ({ req }) => {
-  const res = await fetch('https://api.github.com/repos/zeit/next.js')
-  const json = await res.json()
-  const dateStr  = new Date().toISOString()
-  return { stars: json.stargazers_count, date: dateStr }
-}
 
 export default Home
