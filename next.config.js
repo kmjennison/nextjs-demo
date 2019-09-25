@@ -5,6 +5,8 @@ const nextConfig = {
   target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
   generateInDevMode: false, // whether to enable the SW in development
+  clientsClaim: true,
+  skipWaiting: true,
   workboxOpts: {
     swDest: 'static/service-worker.js',
     // TODO:
