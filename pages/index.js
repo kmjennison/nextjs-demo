@@ -33,10 +33,7 @@ const Home = props => {
       <Nav />
 
       <div className="hero">
-        <h1 className="title">
-          Welcome to Next.js! Stargazers:
-          {stars}
-        </h1>
+        <h1 className="title">Hello there! Stargazers: {stars}</h1>
         <p className="description">
           {"Here's the date:"}
           {date}
