@@ -1,0 +1,12 @@
+
+service: nextJsDemo
+frameworkVersion: ">=1.52.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+
+# https://github.com/danielcondemarin/serverless-next.js/tree/master/packages/serverless-nextjs-component
+nextJsDemo:
+  component: serverless-next.js
