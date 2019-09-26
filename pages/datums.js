@@ -8,7 +8,9 @@ const Datums = props => {
   const { viewer } = props
   return (
     <div>
-      <Link href="/">Go home</Link>
+      <Link href="/">
+        <div>Go home</div>
+      </Link>
       <BlogPosts viewer={viewer} />
     </div>
   )
