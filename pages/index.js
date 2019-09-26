@@ -36,35 +36,15 @@ const Home = props => {
 
       <div>
         <div
+          data-test-id="background-img"
           style={{
             backgroundImage: `url(${backgroundImgURL})`,
-            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 0px 120px inset',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed',
-            WebkitBackgroundSize: 'cover',
-            MozBackgroundSize: 'cover',
-            backgroundSize: 'cover',
-            position: 'absolute',
-            top: 0,
-            bottom: 0,
-            right: 0,
-            left: 0,
-            zIndex: -1,
           }}
-          data-test-id="dashboard-background-img"
+          className="backgroundImg"
         >
           <div
             data-test-id="background-tint-overlay"
-            style={{
-              position: 'absolute',
-              top: 0,
-              bottom: 0,
-              right: 0,
-              left: 0,
-              zIndex: 'auto',
-              backgroundColor: `rgba(0, 0, 0, 0.15`,
-            }}
+            className="backgroundImgTint"
           />
         </div>
       </div>
@@ -155,6 +135,37 @@ const Home = props => {
             padding: 12px 0 0;
             font-size: 13px;
             color: #fff;
+          }
+          .backgroundImg {
+            animation: fadein 0.5s;
+            box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 120px inset;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: -1;
+          }
+          @keyframes fadein {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+            }
+          }
+          .backgroundImgTint {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: auto;
+            background-color: rgba(0, 0, 0, 0.15);
           }
         `}
       </style>
