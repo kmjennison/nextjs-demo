@@ -13,7 +13,7 @@ const Nav = () => (
     <ul>
       <li>
         <Link href="/">
-          <div>Home</div>
+          <a>Home</a>
         </Link>
       </li>
       {links.map(({ key, href, label }) => (

@@ -9,7 +9,7 @@ const Datums = props => {
   return (
     <div>
       <Link href="/">
-        <div>Go home</div>
+        <a>Go home</a>
       </Link>
       <BlogPosts viewer={viewer} />
     </div>
