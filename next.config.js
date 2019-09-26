@@ -8,7 +8,7 @@ const nextConfig = {
   // a 404 in development for _error.js (but not in prod), so this
   // doesn't work. Related issue:
   // https://github.com/hanford/next-offline/issues/190
-  generateInDevMode: true,
+  generateInDevMode: false,
   workboxOpts: {
     swDest: 'static/service-worker.js',
     cleanupOutdatedCaches: true,
