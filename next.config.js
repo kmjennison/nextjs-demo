@@ -4,11 +4,10 @@ const withOffline = require('next-offline')
 const nextConfig = {
   target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest), // add the homepage to the cache
-  // Whether to enable the SW in development. We're running into
-  // a 404 in development for _error.js (but not in prod), so this
-  // doesn't work. Related issue:
-  // https://github.com/hanford/next-offline/issues/190
-  generateInDevMode: false,
+  // Whether to enable the SW in development. Note this may not work
+  // if we don't have a custom _error.js file:
+  // https://github.com/hanford/next-offline/issues/190#issuecomment-535278921
+  generateInDevMode: true,
   workboxOpts: {
     swDest: 'static/service-worker.js',
     cleanupOutdatedCaches: true,
