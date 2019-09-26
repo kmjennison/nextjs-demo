@@ -1,20 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { graphql } from 'react-relay'
 import Link from 'next/link'
 import withData from '../lib/withData'
 import BlogPosts from '../components/BlogPosts'
 
-class Datums extends Component {
-  static displayName = `Datums`
-
-  render (props) {
-    return (
-      <div>
-        <Link href={'/'}>Go home</Link>
-        <BlogPosts viewer={this.props.viewer} />
-      </div>
-    )
-  }
+const Datums = props => {
+  const { viewer } = props
+  return (
+    <div>
+      <Link href="/">Go home</Link>
+      <BlogPosts viewer={viewer} />
+    </div>
+  )
 }
 
 export default withData(Datums, {
@@ -24,5 +21,5 @@ export default withData(Datums, {
         ...BlogPosts_viewer
       }
     }
-  `
+  `,
 })
