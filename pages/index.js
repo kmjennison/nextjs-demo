@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
+import Link from 'next/link'
 import fetch from 'isomorphic-unfetch'
 import Nav from '../components/nav'
 
@@ -87,6 +88,17 @@ const Home = props => {
             <h3>Examples &rarr;</h3>
             <p>Find other example boilerplates on the Next.js GitHub.</p>
           </a>
+          <Link href="/datums">
+            <div
+              style={{
+                color: '#fff',
+                textDecoration: 'underline',
+                cursor: 'pointer',
+              }}
+            >
+              Go to datums
+            </div>
+          </Link>
         </div>
       </div>
 
