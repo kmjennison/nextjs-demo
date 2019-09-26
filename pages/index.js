@@ -24,6 +24,8 @@ const Home = props => {
     }
     callAPI()
   }, [])
+  const backgroundImgURL =
+    'https://prod-tab2017-media.gladly.io/img/backgrounds/232a6803fb70419bbfb3c1697233bd45.jpg'
   return (
     <div>
       <Head>
@@ -31,6 +33,41 @@ const Home = props => {
       </Head>
 
       <Nav />
+
+      <div>
+        <div
+          style={{
+            backgroundImage: `url(${backgroundImgURL})`,
+            boxShadow: 'rgba(0, 0, 0, 0.5) 0px 0px 120px inset',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+            WebkitBackgroundSize: 'cover',
+            MozBackgroundSize: 'cover',
+            backgroundSize: 'cover',
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            right: 0,
+            left: 0,
+            zIndex: -1,
+          }}
+          data-test-id="dashboard-background-img"
+        >
+          <div
+            data-test-id="background-tint-overlay"
+            style={{
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              right: 0,
+              left: 0,
+              zIndex: 'auto',
+              backgroundColor: `rgba(0, 0, 0, 0.15`,
+            }}
+          />
+        </div>
+      </div>
 
       <div className="hero">
         <h1 className="title">Hi! Stargazers: {stars}</h1>
@@ -77,7 +114,7 @@ const Home = props => {
         {`
           .hero {
             width: 100%;
-            color: #333;
+            color: #fff;
           }
           .title {
             margin: 0;
@@ -117,7 +154,7 @@ const Home = props => {
             margin: 0;
             padding: 12px 0 0;
             font-size: 13px;
-            color: #333;
+            color: #fff;
           }
         `}
       </style>
