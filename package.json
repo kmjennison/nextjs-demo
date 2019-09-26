@@ -8,17 +8,23 @@
     "start": "NODE_ENV=production node server.js",
     "format": "prettier \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "format:fix": "yarn run format --write",
-    "lint": "eslint \"**/*.{js,jsx}\""
+    "lint": "eslint \"**/*.{js,jsx}\"",
+    "graphcool-init": "graphcool init --schema schema/init-schema.graphql",
+    "relay": "relay-compiler --src ./ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' --exclude '**/schema/**' --schema ./schema/schema.graphql",
+    "schema": "graphql get-schema exampleApp"
   },
   "dependencies": {
+    "graphql": "^14.5.8",
     "isomorphic-unfetch": "^3.0.0",
     "next": "9.0.6",
     "next-offline": "^5.0.0-beta.4",
     "prop-types": "^15.7.2",
     "react": "16.9.0",
-    "react-dom": "16.9.0"
+    "react-dom": "16.9.0",
+    "react-relay": "^6.0.0"
   },
   "devDependencies": {
+    "babel-plugin-relay": "^6.0.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
@@ -27,6 +33,9 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
-    "prettier": "^1.18.2"
+    "graphcool": "^0.11.6",
+    "graphql-cli": "^3.0.14",
+    "prettier": "^1.18.2",
+    "relay-compiler": "^6.0.0"
   }
 }
