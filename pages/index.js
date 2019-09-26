@@ -35,7 +35,7 @@ const Home = props => {
       <div className="hero">
         <h1 className="title">Hi! Stargazers: {stars}</h1>
         <p className="description">
-          {"Here's the date:"}
+          {"Here's the date: "}
           {date}
         </p>
 
