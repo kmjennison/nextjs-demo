@@ -12,13 +12,15 @@ app.prepare().then(() => {
   createServer((req, res) => {
     const parsedUrl = parse(req.url, true)
     const { pathname } = parsedUrl
-
-    // handle GET request to /service-worker.js
     if (pathname === '/service-worker.js') {
-      // Service worker JS is in .next/static/ directory.
+      // Service worker JS is in the .next/static/ directory.
       // https://github.com/hanford/next-offline/issues/141
       const filePath = join(__dirname, '.next', 'static', pathname)
 
+      app.serveStatic(req, res, filePath)
+    } else if (pathname === '/favicon.ico') {
+      // Reroute favicon.ico to the static directory.
+      const filePath = join(__dirname, '.next', 'static', pathname)
       app.serveStatic(req, res, filePath)
     } else {
       handle(req, res, parsedUrl)
