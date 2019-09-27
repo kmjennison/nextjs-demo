@@ -3,6 +3,9 @@ import { createFragmentContainer, graphql } from 'react-relay'
 import BlogPostPreview from './BlogPostPreview'
 
 const BlogPosts = props => {
+  if (!props.viewer.allBlogPosts) {
+    return null
+  }
   return (
     <div>
       <h1>Blog posts</h1>
