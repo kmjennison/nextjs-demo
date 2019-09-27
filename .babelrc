@@ -3,6 +3,10 @@
     "next/babel"
   ],
   "plugins": [
-    "relay"
+    ["relay",
+      {
+        "artifactDirectory": "./relay/__generated__"
+      }
+    ]
   ]
 }

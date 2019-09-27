@@ -10,13 +10,13 @@
     "format:fix": "yarn run format --write",
     "lint": "eslint \"**/*.{js,jsx}\"",
     "graphcool-init": "graphcool init --schema schema/init-schema.graphql",
-    "relay": "relay-compiler --src ./ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' --exclude '**/schema/**' --schema ./schema/schema.graphql",
+    "relay": "relay-compiler --src ./ --exclude '**/.next/**' '**/node_modules/**' '**/test/**'  '**/__generated__/**' '**/schema/**' --schema ./schema/schema.graphql --artifactDirectory ./relay/__generated__",
     "schema": "graphql get-schema exampleApp"
   },
   "dependencies": {
     "graphql": "^14.5.8",
     "isomorphic-unfetch": "^3.0.0",
-    "next": "8.1.1-canary.37",
+    "next": "^9.0.6",
     "next-offline": "^5.0.0-beta.4",
     "prop-types": "^15.7.2",
     "react": "16.9.0",
