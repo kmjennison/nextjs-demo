@@ -21,10 +21,11 @@
     "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-relay": "^6.0.0"
+    "react-relay": "^5.0.0",
+    "react-relay-offline": "^0.10.0"
   },
   "devDependencies": {
-    "babel-plugin-relay": "^6.0.0",
+    "babel-plugin-relay": "^5.0.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.3.0",
@@ -36,6 +37,6 @@
     "graphcool": "^0.11.6",
     "graphql-cli": "^3.0.14",
     "prettier": "^1.18.2",
-    "relay-compiler": "^6.0.0"
+    "relay-compiler": "^5.0.0"
   }
 }

@@ -16,6 +16,7 @@ const Datums = props => {
   )
 }
 
+// TODO: make this work offline
 export default withData(Datums, {
   query: graphql`
     query datumsQuery {
