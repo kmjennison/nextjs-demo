@@ -3,6 +3,8 @@ import { createFragmentContainer, graphql } from 'react-relay'
 import BlogPostPreview from './BlogPostPreview'
 
 const BlogPosts = props => {
+  console.log('is server-side?', typeof window === 'undefined')
+  console.log('has data?', !!props.viewer.allBlogPosts)
   if (!props.viewer.allBlogPosts) {
     return null
   }
