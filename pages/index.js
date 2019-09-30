@@ -12,6 +12,8 @@ const fetchData = async () => {
   return { stars: json.stargazers_count, date: dateStr }
 }
 
+const SHOW_BACKGROUND_IMG = false
+
 const Home = props => {
   const { date: dateSSR, stars: starsSSR } = props
   const [count, setCount] = useState(0)
@@ -35,20 +37,22 @@ const Home = props => {
 
       <Nav />
 
-      <div>
-        <div
-          data-test-id="background-img"
-          style={{
-            backgroundImage: `url(${backgroundImgURL})`,
-          }}
-          className="backgroundImg"
-        >
+      {SHOW_BACKGROUND_IMG ? (
+        <div>
           <div
-            data-test-id="background-tint-overlay"
-            className="backgroundImgTint"
-          />
+            data-test-id="background-img"
+            style={{
+              backgroundImage: `url(${backgroundImgURL})`,
+            }}
+            className="backgroundImg"
+          >
+            <div
+              data-test-id="background-tint-overlay"
+              className="backgroundImgTint"
+            />
+          </div>
         </div>
-      </div>
+      ) : null}
 
       <div className="hero">
         <h1 className="title">Hi! Stargazers: {stars}</h1>
@@ -106,7 +110,7 @@ const Home = props => {
         {`
           .hero {
             width: 100%;
-            color: #fff;
+            color: ${SHOW_BACKGROUND_IMG ? '#fff' : '#333'};
           }
           .title {
             margin: 0;
@@ -146,7 +150,7 @@ const Home = props => {
             margin: 0;
             padding: 12px 0 0;
             font-size: 13px;
-            color: #fff;
+            color: ${SHOW_BACKGROUND_IMG ? '#fff' : '#333'};
           }
           .backgroundImg {
             animation: fadein 0.5s;
