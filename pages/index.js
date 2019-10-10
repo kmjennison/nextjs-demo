@@ -95,7 +95,7 @@ const Home = props => {
           <Link href="/datums">
             <div
               style={{
-                color: '#fff',
+                color: SHOW_BACKGROUND_IMG ? '#fff' : '#333',
                 textDecoration: 'underline',
                 cursor: 'pointer',
               }}
